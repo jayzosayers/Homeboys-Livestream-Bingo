@@ -9,22 +9,7 @@
 
 <iframe id="theframe" src="embed.html" width="620px" height="785px" scrolling="no" frameborder="0"></iframe>
 <script type="text/javascript">
-var getUrlParameter = function getUrlParameter(sParam) {
-    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
- 
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
- 
-        if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : sParameterName[1];
-        }
-    }
-};
-
-var key = getUrlParameter("key");
+var key = $.url.param("key");
 $('#theframe').attr('src', 'embed.html?key=' + key);
 
 </script>
