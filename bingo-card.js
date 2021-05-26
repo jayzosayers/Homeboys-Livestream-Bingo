@@ -3,7 +3,7 @@ var usedNums = new Array(76);
 var data = new Array();
 var maxItems = 0;
 const reader = new FileReader();
-var versionNumber = 0.3;
+var versionNumber = 0.4;
 
 function initAll() {
   var versionElement = document.getElementById("script-version");
@@ -40,7 +40,7 @@ function getData() {
                 var allText = rawFile.responseText;
                 data = csvToArray(allText);
                 maxItems = data.length;
-                alert(maxItems);
+                console.log(data);
             }
         }
     }
