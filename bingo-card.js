@@ -3,9 +3,14 @@ var usedNums = new Array(76);
 var data = new Array();
 var maxItems = 0;
 const reader = new FileReader();
-
+var versionNumber = 1.2;
 
 function initAll() {
+  var versionElement = document.getElementById("script-version");
+  var versionNumText = document.createTextNode(versionNumber);
+
+  versionElement.appendChild(versionNumText);
+
   getData();
 
   if (document.getElementById) {
