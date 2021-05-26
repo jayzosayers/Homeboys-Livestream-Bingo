@@ -3,7 +3,7 @@ var usedNums = new Array(76);
 var data = new Array();
 var maxItems = 0;
 const reader = new FileReader();
-var versionNumber = 0.6;
+var versionNumber = 0.7;
 
 function initAll() {
   var versionElement = document.getElementById("script-version");
@@ -12,14 +12,6 @@ function initAll() {
   versionElement.appendChild(versionNumText);
 
   getData();
-
-  if (document.getElementById) {
-    document.getElementById("reload").onclick = anotherCard;
-    newCard();
-  }
-  else {
-    alert("Your browser does not support this script.");
-  }
 }
 
 function newCard() {
@@ -40,6 +32,14 @@ function getData() {
                 var allText = rawFile.responseText;
                 data = csvToArray(allText);
                 maxItems = data.length;
+
+                if (document.getElementById) {
+                  document.getElementById("reload").onclick = anotherCard;
+                  newCard();
+                }
+                else {
+                  alert("Your browser does not support this script.");
+                }
             }
         }
     }
