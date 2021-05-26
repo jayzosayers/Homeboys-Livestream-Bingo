@@ -3,7 +3,7 @@ var usedNums = new Array(76);
 var data = new Array();
 var maxItems = 0;
 const reader = new FileReader();
-var versionNumber = 0.5;
+var versionNumber = 0.6;
 
 function initAll() {
   var versionElement = document.getElementById("script-version");
@@ -15,7 +15,7 @@ function initAll() {
 
   if (document.getElementById) {
     document.getElementById("reload").onclick = anotherCard;
-    //newCard();
+    newCard();
   }
   else {
     alert("Your browser does not support this script.");
@@ -40,7 +40,6 @@ function getData() {
                 var allText = rawFile.responseText;
                 data = csvToArray(allText);
                 maxItems = data.length;
-                console.log(data);
             }
         }
     }
@@ -83,7 +82,7 @@ function setSquare(thisSquare) {
   do {
     newNum = colBasis + getNewNum() + 1;
     console.log(data[newNum] + " | " + newNum);
-  } while ((usedNums[newNum]) || (newNum <= maxItems));
+  } while ((usedNums[newNum]) || (newNum >= maxItems));
 
   usedNums[newNum] = true;
   document.getElementById(currentSquare).innerHTML = data[newNum];
